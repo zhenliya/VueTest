@@ -32,17 +32,22 @@
 <div id="app">
   <h2>1. 双大括号表达式</h2>
   <p>{{msg}}</p>
+  <!--基本数据类型后面跟着. 会根据基本类型创建一个对象 双大括号用在标签里面-->
   <p>大写模式: {{msg.toUpperCase()}}</p>
 
   <h2>2. 指令一: 强制数据绑定</h2>
+  <!--这个是 错误的-->
   <a href="url">链接1</a><br>
+  <!--下面这个url会看成一个动态表达式-->
   <a v-bind:href='url'>链接2</a><br>
+  <!--省略的写法，表示属性的强制数据绑定-->
   <a :href='url'>链接2</a>
 
   <h2>3. 指令二: 绑定事件监听</h2>
   <button v-on:click="test1">test1</button>
   <button v-on:click="test2('abc')">test2</button>
-
+  <!--v-on 缩写-->
+  <button @click="test2('abc')">test2</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
