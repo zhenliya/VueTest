@@ -26,18 +26,20 @@
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-  // Object.defineProperty()
+  // Object.defineProperty()  指定对象定义
   const obj = {
     firstName: 'A',
     lastName: 'B'
   }
 
   // 给对象添加一个属性: fullName, 要求它与fistName和lastName能自动同步变化
+  // 直接用.的方式没有用
   /*obj.fullName = obj.firstName + '-' + obj.lastName
   console.log(obj.fullName) // A-B
-  obj.firstName = 'C'
+  obj.firstName = 'C'   这里改变了，fullName并不会跟着改变
   obj.lastName = 'D'
   console.log(obj.fullName)// C-D ? A-B */
+ // 用get set 实现计算属性实时变化， 下面表示获取对象obj的属性fullName
   Object.defineProperty(obj, 'fullName', { // 配置对象==>属性描述符
 
     // 当读取当前属性值时自动调用, 函数的返回值作为属性值, this是当前对象
