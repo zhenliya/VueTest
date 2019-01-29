@@ -11,8 +11,17 @@
   数组: v-for / index
   对象: v-for / key
 2. 列表的更新显示
-  删除item
+  删除item    给数组中所有数据都添加set方法
   替换item
+
+  重写了数组方法：
+  push()
+  pop()
+  shift()
+  unshift()
+  splice()
+  sort()
+  reverse()
 -->
 
 <div id="demo">
@@ -57,7 +66,7 @@
       },
 
       updateP (index, newP) {
-       //  this.persons[index] = newP  //vue根本就不知道数组内部数据发生了变化, 不会去更新界面
+       //  this.persons[index] = newP  //是引用vue根本就不知道数组内部数据发生了变化, 不会去更新界面
         this.persons.splice(index, 1, newP)
         // this.persons = []
       }

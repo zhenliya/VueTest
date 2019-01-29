@@ -33,14 +33,15 @@
 <script type="text/javascript">
   const vm = new Vue({
     el: '#demo',
-    data: {// vm会自动添加一些同名的属性
+    data: {// vm会自动添加一些同名的属性 定义初始值
       firstName: 'A',
       lastName: 'B',
       fullName2: 'A-B'
     },
-    computed: {// vm会自动添加一些同名的属性
+    computed: {// vm会自动添加一些v-model同名的属性,每个属性都有get和set方法
       // 什么时候调用: 初始显示 / 相关数据发生了改变
-      fullName1 () { // this是vm
+        //简写 fullName1(){
+      fullName1 :function() { // this是vm
         console.log('fullName1()', this)
         return this.firstName + '-' + this.lastName
       },
@@ -68,7 +69,8 @@
       }
     },
     watch: {
-      // 监视firstName
+      // 监视firstName:function(newValue, oldValue){
+        //firstName
       firstName (value) {
         // 更新fullName2
         this.fullName2 = value + '-' + this.lastName

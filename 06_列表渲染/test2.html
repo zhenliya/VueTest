@@ -42,7 +42,7 @@
         let {persons, searchName, orderType} = this
         // 计算处理, 并返回结果
         // 对数据进行过滤
-        persons = persons.filter((p, index) => p.name.indexOf(searchName)!==-1)
+        persons = persons.filter((p, index) => p.name.indexOf(searchName)!==-1) //表示包含searchName
 
         // 对数据进行排序
         if(orderType!==1) {
