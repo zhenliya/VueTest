@@ -48,7 +48,7 @@
     // 在初始化显示之后立即调用
     mounted () {
       console.log('mounted()')
-      // 启动定时器/发ajax请求等异步操作
+      // 启动定时器/发ajax请求等异步操作  这里this 是vm
       this.intervalId = setInterval(() => {
         console.log('-----')
         this.isShow = !this.isShow

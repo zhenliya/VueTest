@@ -26,9 +26,10 @@
   <button @click="test1">test1</button>
   <button @click="test2('atguigu')">test2</button>
   <button @click="test3('xxx', $event)">test3</button>
+  <!--$event 事件形参，代表event对象，名字不能乱写-->
 
   <h2>2. 事件修饰符</h2>
-  <!--阻止(prevent)事件的默认行为-->
+  <!--阻止(prevent)事件的默认行为, @click.prevent  在绑定事件后面加上.prevent-->
   <a href="http://www.baidu.com" @click.prevent="test4">百度一下</a>
   <!--停止(stop)事件冒泡-->
   <div style="width: 200px; height: 200px; background: red" @click="test5">
@@ -38,6 +39,7 @@
   <h2>3. 按键修饰符</h2>
   <input type="text" @keyup="test7">
   <input type="text" @keyup.enter="test8">
+  <!--特别的功能键才能用名字，特殊字符需要用keyCode-->
   <input type="text" @keyup.65="test8">
 
 </div>
@@ -50,17 +52,18 @@
 
     },
     methods: {
-      test1 (event) {
-        alert(event.target.textContent)
+      test1 (event) { //点击发生事件
+        alert(event.target.textContent)  // target是发生事件的标签元素
       },
-      test2 (content) {
+      test2 (content) {  //点击传递内容
         alert(content)
       },
-      test3 (content, e) {
+      test3 (content, e) {  //点击传递事件和内容
         alert(content + '---'+e.target.innerHTML)
       },
       test4 (event) {
         alert('点击了链接')
+        //阻止默认行为的方法 event.preventDefault()
         // event.preventDefault()
       },
 
@@ -73,7 +76,7 @@
 
       test7 (event) {
         if(event.keyCode===13) {
-          alert(event.target.value + '---' + event.keyCode)
+          alert(event.target.value + '---' + event.keyCode) // event.keyCode获取每个键对应的号码
         }
 
       },

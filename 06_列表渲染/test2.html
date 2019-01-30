@@ -25,7 +25,7 @@
 <script type="text/javascript">
   new Vue({
     el: '#demo',
-    data: {
+    data: {   //界面数据是根据这里改变的
       persons: [
         {name: 'Tom', age: 14},
         {name: 'Jack', age: 18},
@@ -38,17 +38,17 @@
 
     computed: {
       filterPersons () {
-        // 得到相关的数据
+        // 得到相关的数据，相关数据改变会重新执行
         let {persons, searchName, orderType} = this
         // 计算处理, 并返回结果
         // 对数据进行过滤
         persons = persons.filter((p, index) => p.name.indexOf(searchName)!==-1) //表示包含searchName
 
-        // 对数据进行排序
+        // 对数据进行排序，得先取出排序的数据
         if(orderType!==1) {
-          persons.sort((p1, p2) => {
+          persons.sort((p1, p2) => {  //sort（）里面传比较函数是原地排序，稳定的，箭头用来定义匿名函数，当尖括号右边没有花括号表示只有一行，并返回结果
             if(orderType===3) { // 降序
-              return p2.age - p1.age
+              return p2.age - p1.age  //如果结果大于零，p2会与p1交换顺序
             } else { // 升序
               return p1.age - p2.age
             }

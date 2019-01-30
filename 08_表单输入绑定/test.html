@@ -21,6 +21,7 @@
     <input type="password" v-model="user.pwd"><br>
 
     <span>性别: </span>
+    <!--单选框和多选框会把value值传入到v-model中， 界面的显示是根据数据来显示的，更新界面，只要更新数据-->
     <input type="radio" id="female" value="女" v-model="user.sex">
     <label for="female">女</label>
     <input type="radio" id="male" value="男" v-model="user.sex">
